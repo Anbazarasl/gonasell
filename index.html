@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gonasell — Production Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="#" class="header__logo">
+        <img src="images/logo.svg" alt="Gonasell">
+      </a>
+      <nav class="header__nav">
+        <a href="#services" class="header__link">SERVICES</a>
+        <a href="#team" class="header__link">TEAM</a>
+        <a href="#contact" class="header__cta">CONTACT US <span class="arrow">&#8594;</span></a>
+      </nav>
+      <button class="header__menu-btn" id="menuBtn" aria-label="Open menu">MENU</button>
+    </div>
+  </header>
+
+  <!-- ========== MOBILE MENU ========== -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu__inner">
+      <div class="mobile-menu__top">
+        <a href="#" class="mobile-menu__logo">
+          <img src="images/logo.svg" alt="Gonasell">
+        </a>
+        <button class="mobile-menu__close" id="menuClose">CLOSE</button>
+      </div>
+      <nav class="mobile-menu__nav">
+        <a href="#services" class="mobile-menu__link">SERVICES</a>
+        <a href="#team" class="mobile-menu__link">TEAM</a>
+        <a href="#contact" class="mobile-menu__link">CONTACT US</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ========== HERO SLIDER ========== -->
+  <section class="hero" id="hero">
+    <div class="hero__slides">
+      <div class="hero__slide active" style="background-image: url('images/hero-01.webp')"></div>
+      <div class="hero__slide" style="background-image: url('images/hero-02.webp')"></div>
+      <div class="hero__slide" style="background-image: url('images/hero-03.webp')"></div>
+      <div class="hero__slide" style="background-image: url('images/hero-04.webp')"></div>
+      <div class="hero__slide" style="background-image: url('images/hero-05.webp')"></div>
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <div class="hero__text">
+        <div class="hero__text-left">
+          <span class="hero__label">PRODUCTION STUDIO</span>
+          <h1 class="hero__title">YOUR NEW<br>FAVORITE</h1>
+        </div>
+        <div class="hero__text-right">
+          <h2 class="hero__subtitle">VISUAL CONTENT<br>CREATORS</h2>
+        </div>
+      </div>
+      <div class="hero__pagination">
+        <div class="hero__pagination-numbers">
+          <button class="hero__page-num active" data-slide="0">01</button>
+          <button class="hero__page-num" data-slide="1">02</button>
+          <button class="hero__page-num" data-slide="2">03</button>
+          <button class="hero__page-num" data-slide="3">04</button>
+          <button class="hero__page-num" data-slide="4">05</button>
+        </div>
+        <div class="hero__progress">
+          <div class="hero__progress-bar"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== LOGO BAR ========== -->
+  <section class="logos">
+    <div class="logos__track">
+      <div class="logos__item"><img src="images/client-1.webp" alt="Client"></div>
+      <div class="logos__item"><img src="images/client-2.webp" alt="Client"></div>
+      <div class="logos__item"><img src="images/client-3.webp" alt="Client"></div>
+      <div class="logos__item"><img src="images/client-4.webp" alt="Client"></div>
+      <div class="logos__item"><img src="images/client-5.webp" alt="Client"></div>
+      <div class="logos__item"><img src="images/client-6.webp" alt="Client"></div>
+      <div class="logos__item"><img src="images/client-7.webp" alt="Client"></div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section class="services" id="services">
+    <div class="services__inner">
+      <span class="section-label">WHAT WE DO</span>
+      <h2 class="section-title">OUR SERVICES</h2>
+
+      <div class="services__list">
+        <!-- E-Commerce (expanded) -->
+        <div class="services__divider"></div>
+        <div class="service-item active" data-service="ecommerce">
+          <div class="service-item__header">
+            <div class="service-item__left">
+              <span class="service-item__num">01</span>
+              <h3 class="service-item__name service-item__name--active">E-COMMERCE</h3>
+            </div>
+            <div class="service-item__right">
+              <p class="service-item__desc">Product photography and video content that converts browsers into buyers. Clean, compelling visuals for your online store.</p>
+            </div>
+          </div>
+          <div class="service-item__gallery">
+            <div class="service-item__slider">
+              <div class="service-item__slides">
+                <img src="images/service-1.webp" alt="E-commerce photography">
+                <img src="images/service-2.webp" alt="E-commerce photography">
+                <img src="images/service-3.webp" alt="E-commerce photography">
+              </div>
+            </div>
+            <div class="service-item__arrows">
+              <button class="service-item__arrow service-item__arrow--prev" aria-label="Previous">
+                <svg width="13" height="25" viewBox="0 0 13 25" fill="none"><path d="M12 1L1.5 12.5L12 24" stroke="white" stroke-width="1.5"/></svg>
+              </button>
+              <button class="service-item__arrow service-item__arrow--next" aria-label="Next">
+                <svg width="13" height="25" viewBox="0 0 13 25" fill="none"><path d="M1 1L11.5 12.5L1 24" stroke="white" stroke-width="1.5"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="services__divider"></div>
+        <!-- Social Media -->
+        <div class="service-item" data-service="social">
+          <div class="service-item__header">
+            <div class="service-item__left">
+              <span class="service-item__num">02</span>
+              <h3 class="service-item__name">SOCIAL MEDIA</h3>
+            </div>
+            <div class="service-item__right">
+              <p class="service-item__desc">Scroll-stopping content designed for engagement. Reels, stories, and posts that make your brand unforgettable.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="services__divider"></div>
+        <!-- Weddings -->
+        <div class="service-item" data-service="weddings">
+          <div class="service-item__header">
+            <div class="service-item__left">
+              <span class="service-item__num">03</span>
+              <h3 class="service-item__name">WEDDINGS</h3>
+            </div>
+            <div class="service-item__right">
+              <p class="service-item__desc">Capturing your most important moments with cinematic elegance. Every emotion, every detail, preserved forever.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="services__divider"></div>
+        <!-- Music Videos -->
+        <div class="service-item" data-service="music">
+          <div class="service-item__header">
+            <div class="service-item__left">
+              <span class="service-item__num">04</span>
+              <h3 class="service-item__name">MUSIC VIDEOS</h3>
+            </div>
+            <div class="service-item__right">
+              <p class="service-item__desc">Creative direction and production that brings your sound to life visually. Bold concepts, flawless execution.</p>
+            </div>
+          </div>
+        </div>
+        <div class="services__divider"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TEAM ========== -->
+  <section class="team" id="team">
+    <div class="team__inner">
+      <span class="section-label">ABOUT US</span>
+      <h2 class="section-title">MEET THE TEAM</h2>
+
+      <div class="team__grid">
+        <!-- Nedas -->
+        <div class="team__card">
+          <div class="team__photo">
+            <img src="images/team-nedas.webp" alt="Nedas">
+            <img src="images/icon-videocamera.svg" alt="" class="team__icon">
+          </div>
+          <span class="team__years">12 YEARS</span>
+          <div class="team__info">
+            <h3 class="team__name">NEDAS</h3>
+            <span class="team__role">VIDEOGRAPHER</span>
+          </div>
+          <p class="team__bio">Creative energy, technical skill, and a laidback vibe. He captures the perfect shot and turns it into something unforgettable.</p>
+        </div>
+
+        <!-- Lukas -->
+        <div class="team__card">
+          <div class="team__photo">
+            <img src="images/team-lukas.webp" alt="Lukas">
+            <img src="images/icon-camera.svg" alt="" class="team__icon">
+          </div>
+          <span class="team__years">8 YEARS</span>
+          <div class="team__info">
+            <h3 class="team__name">LUKAS</h3>
+            <span class="team__role">PHOTOGRAPHER</span>
+          </div>
+          <p class="team__bio">Detail-focused with a sharp eye and fresh ideas. He captures moments that feel genuine and makes them look amazing.</p>
+        </div>
+
+        <!-- Gabriele -->
+        <div class="team__card">
+          <div class="team__photo">
+            <img src="images/team-gabriele.webp" alt="Gabriele">
+            <img src="images/icon-video.svg" alt="" class="team__icon">
+          </div>
+          <span class="team__years">6+ YEARS</span>
+          <div class="team__info">
+            <h3 class="team__name">GABRIELĖ</h3>
+            <span class="team__role">VISUAL DIRECTOR</span>
+          </div>
+          <p class="team__bio">A sharp scriptwriter and hands-on visual director. She brings visions to life — smoothly and with style.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" id="contact">
+    <div class="footer__inner">
+      <div class="footer__divider"></div>
+
+      <div class="footer__contact">
+        <div class="footer__cta-text">
+          <h2 class="footer__heading">YOUR PROJECT STARTS HERE</h2>
+        </div>
+        <div class="footer__arrow">
+          <img src="images/arrow-right.svg" alt="">
+        </div>
+        <div class="footer__info">
+          <a href="mailto:info@gonasell.com" class="footer__email">info@gonasell.com</a>
+          <a href="tel:+37067098847" class="footer__phone">+370 67098847</a>
+        </div>
+      </div>
+
+      <div class="footer__social">
+        <a href="#" aria-label="Facebook"><img src="images/social-facebook.svg" alt="Facebook"></a>
+        <a href="#" aria-label="Instagram">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg>
+        </a>
+        <a href="#" aria-label="LinkedIn"><img src="images/social-linkedin.svg" alt="LinkedIn"></a>
+        <a href="#" aria-label="YouTube"><img src="images/social-youtube.svg" alt="YouTube"></a>
+        <a href="#" aria-label="TikTok"><img src="images/social-tiktok.svg" alt="TikTok"></a>
+      </div>
+    </div>
+
+    <div class="footer__brand">
+      <img src="images/gonasell-large.svg" alt="Gonasell">
+    </div>
+
+    <div class="footer__bottom">
+      <span>&copy;2026 MB Gonasell | All rights reserved</span>
+      <div class="footer__links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
