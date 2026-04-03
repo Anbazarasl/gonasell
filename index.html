@@ -4,6 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gonasell — Production Studio</title>
+  <meta name="description" content="Gonasell is a Lithuanian production studio specializing in e-commerce photography, social media content, weddings, and music videos. Your new favorite visual content creators.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Gonasell — Production Studio">
+  <meta property="og:description" content="Your new favorite visual content creators. E-commerce, social media, weddings & music video production in Lithuania.">
+  <meta property="og:image" content="images/hero-01.webp">
+  <meta property="og:url" content="https://gonasell.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gonasell — Production Studio">
+  <meta name="twitter:description" content="Your new favorite visual content creators.">
+  <meta name="twitter:image" content="images/hero-01.webp">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -15,7 +26,7 @@
   <!-- ========== HEADER ========== -->
   <header class="header" id="header">
     <div class="header__inner">
-      <a href="#" class="header__logo">
+      <a href="#hero" class="header__logo">
         <img src="images/logo.svg" alt="Gonasell">
       </a>
       <nav class="header__nav">
@@ -31,7 +42,7 @@
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu__inner">
       <div class="mobile-menu__top">
-        <a href="#" class="mobile-menu__logo">
+        <a href="#hero" class="mobile-menu__logo">
           <img src="images/logo.svg" alt="Gonasell">
         </a>
         <button class="mobile-menu__close" id="menuClose">CLOSE</button>
@@ -56,15 +67,15 @@
     <div class="hero__overlay"></div>
     <div class="hero__content">
       <div class="hero__text">
-        <div class="hero__text-left">
+        <div class="hero__text-left reveal reveal-left">
           <span class="hero__label">PRODUCTION STUDIO</span>
           <h1 class="hero__title">YOUR NEW<br>FAVORITE</h1>
         </div>
-        <div class="hero__text-right">
+        <div class="hero__text-right reveal reveal-right delay-1">
           <h2 class="hero__subtitle">VISUAL CONTENT<br>CREATORS</h2>
         </div>
       </div>
-      <div class="hero__pagination">
+      <div class="hero__pagination reveal delay-2">
         <div class="hero__pagination-numbers">
           <button class="hero__page-num active" data-slide="0">01</button>
           <button class="hero__page-num" data-slide="1">02</button>
@@ -79,9 +90,17 @@
     </div>
   </section>
 
-  <!-- ========== LOGO BAR ========== -->
+  <!-- ========== LOGO MARQUEE ========== -->
   <section class="logos">
     <div class="logos__track">
+      <div class="logos__item"><img src="images/client-1.webp" alt="Client"></div>
+      <div class="logos__item"><img src="images/client-2.webp" alt="Client"></div>
+      <div class="logos__item"><img src="images/client-3.webp" alt="Client"></div>
+      <div class="logos__item"><img src="images/client-4.webp" alt="Client"></div>
+      <div class="logos__item"><img src="images/client-5.webp" alt="Client"></div>
+      <div class="logos__item"><img src="images/client-6.webp" alt="Client"></div>
+      <div class="logos__item"><img src="images/client-7.webp" alt="Client"></div>
+      <!-- duplicate for seamless loop -->
       <div class="logos__item"><img src="images/client-1.webp" alt="Client"></div>
       <div class="logos__item"><img src="images/client-2.webp" alt="Client"></div>
       <div class="logos__item"><img src="images/client-3.webp" alt="Client"></div>
@@ -95,13 +114,13 @@
   <!-- ========== SERVICES ========== -->
   <section class="services" id="services">
     <div class="services__inner">
-      <span class="section-label">WHAT WE DO</span>
-      <h2 class="section-title">OUR SERVICES</h2>
+      <span class="section-label reveal">WHAT WE DO</span>
+      <h2 class="section-title reveal delay-1">OUR SERVICES</h2>
 
       <div class="services__list">
         <!-- E-Commerce (expanded) -->
         <div class="services__divider"></div>
-        <div class="service-item active" data-service="ecommerce">
+        <div class="service-item active reveal" data-service="ecommerce">
           <div class="service-item__header">
             <div class="service-item__left">
               <span class="service-item__num">01</span>
@@ -114,9 +133,9 @@
           <div class="service-item__gallery">
             <div class="service-item__slider">
               <div class="service-item__slides">
-                <img src="images/service-1.webp" alt="E-commerce photography">
-                <img src="images/service-2.webp" alt="E-commerce photography">
-                <img src="images/service-3.webp" alt="E-commerce photography">
+                <img src="images/service-1.webp" alt="E-commerce photography" loading="lazy">
+                <img src="images/service-2.webp" alt="E-commerce photography" loading="lazy">
+                <img src="images/service-3.webp" alt="E-commerce photography" loading="lazy">
               </div>
             </div>
             <div class="service-item__arrows">
@@ -132,7 +151,7 @@
 
         <div class="services__divider"></div>
         <!-- Social Media -->
-        <div class="service-item" data-service="social">
+        <div class="service-item reveal delay-1" data-service="social">
           <div class="service-item__header">
             <div class="service-item__left">
               <span class="service-item__num">02</span>
@@ -146,7 +165,7 @@
 
         <div class="services__divider"></div>
         <!-- Weddings -->
-        <div class="service-item" data-service="weddings">
+        <div class="service-item reveal delay-2" data-service="weddings">
           <div class="service-item__header">
             <div class="service-item__left">
               <span class="service-item__num">03</span>
@@ -160,7 +179,7 @@
 
         <div class="services__divider"></div>
         <!-- Music Videos -->
-        <div class="service-item" data-service="music">
+        <div class="service-item reveal delay-3" data-service="music">
           <div class="service-item__header">
             <div class="service-item__left">
               <span class="service-item__num">04</span>
@@ -179,14 +198,14 @@
   <!-- ========== TEAM ========== -->
   <section class="team" id="team">
     <div class="team__inner">
-      <span class="section-label">ABOUT US</span>
-      <h2 class="section-title">MEET THE TEAM</h2>
+      <span class="section-label reveal">ABOUT US</span>
+      <h2 class="section-title reveal delay-1">MEET THE TEAM</h2>
 
       <div class="team__grid">
         <!-- Nedas -->
-        <div class="team__card">
+        <div class="team__card reveal">
           <div class="team__photo">
-            <img src="images/team-nedas.webp" alt="Nedas">
+            <img src="images/team-nedas.webp" alt="Nedas" loading="lazy">
             <img src="images/icon-videocamera.svg" alt="" class="team__icon">
           </div>
           <span class="team__years">12 YEARS</span>
@@ -198,9 +217,9 @@
         </div>
 
         <!-- Lukas -->
-        <div class="team__card">
+        <div class="team__card reveal delay-1">
           <div class="team__photo">
-            <img src="images/team-lukas.webp" alt="Lukas">
+            <img src="images/team-lukas.webp" alt="Lukas" loading="lazy">
             <img src="images/icon-camera.svg" alt="" class="team__icon">
           </div>
           <span class="team__years">8 YEARS</span>
@@ -212,9 +231,9 @@
         </div>
 
         <!-- Gabriele -->
-        <div class="team__card">
+        <div class="team__card reveal delay-2">
           <div class="team__photo">
-            <img src="images/team-gabriele.webp" alt="Gabriele">
+            <img src="images/team-gabriele.webp" alt="Gabriele" loading="lazy">
             <img src="images/icon-video.svg" alt="" class="team__icon">
           </div>
           <span class="team__years">6+ YEARS</span>
@@ -234,19 +253,19 @@
       <div class="footer__divider"></div>
 
       <div class="footer__contact">
-        <div class="footer__cta-text">
+        <div class="footer__cta-text reveal reveal-left">
           <h2 class="footer__heading">YOUR PROJECT STARTS HERE</h2>
         </div>
         <div class="footer__arrow">
           <img src="images/arrow-right.svg" alt="">
         </div>
-        <div class="footer__info">
+        <div class="footer__info reveal reveal-right delay-1">
           <a href="mailto:info@gonasell.com" class="footer__email">info@gonasell.com</a>
           <a href="tel:+37067098847" class="footer__phone">+370 67098847</a>
         </div>
       </div>
 
-      <div class="footer__social">
+      <div class="footer__social reveal delay-2">
         <a href="#" aria-label="Facebook"><img src="images/social-facebook.svg" alt="Facebook"></a>
         <a href="#" aria-label="Instagram">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg>
@@ -257,15 +276,15 @@
       </div>
     </div>
 
-    <div class="footer__brand">
+    <div class="footer__brand reveal reveal-scale">
       <img src="images/gonasell-large.svg" alt="Gonasell">
     </div>
 
     <div class="footer__bottom">
       <span>&copy;2026 MB Gonasell | All rights reserved</span>
       <div class="footer__links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms &amp; Conditions</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
       </div>
     </div>
   </footer>
