@@ -90,18 +90,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (sliderContainer && prevBtn && nextBtn) {
     let sliderPos = 0;
-    const slideImgs = sliderContainer.querySelectorAll('img');
+    const slideItems = sliderContainer.querySelectorAll('img, .service-item__video');
 
     function getSlideWidth() {
-      const img = slideImgs[0];
-      if (!img) return 0;
+      const firstItem = slideItems[0];
+      if (!firstItem) return 0;
       const gap = 24;
-      return img.offsetWidth + gap;
+      return firstItem.offsetWidth + gap;
     }
 
     function getMaxPos() {
       const containerWidth = sliderContainer.parentElement.offsetWidth;
-      const totalWidth = slideImgs.length * getSlideWidth() - 24;
+      const totalWidth = slideItems.length * getSlideWidth() - 24;
       return Math.max(0, totalWidth - containerWidth);
     }
 
@@ -121,6 +121,35 @@ document.addEventListener('DOMContentLoaded', () => {
       updateSlider();
     });
   }
+
+  /* ========== VIDEO LIGHTBOX ========== */
+  const videoModal = document.getElementById('videoModal');
+  const videoModalPlayer = document.getElementById('videoModalPlayer');
+  const videoModalClose = document.getElementById('videoModalClose');
+
+  const videos = document.querySelectorAll('.service-item__video');
+  videos.forEach(video => {
+    video.addEventListener('click', () => {
+      const src = video.dataset.src;
+      videoModalPlayer.src = src;
+      videoModal.classList.add('open');
+      videoModalPlayer.play();
+    });
+  });
+
+  function closeVideoModal() {
+    videoModal.classList.remove('open');
+    videoModalPlayer.pause();
+    videoModalPlayer.src = '';
+  }
+
+  videoModalClose.addEventListener('click', closeVideoModal);
+  videoModal.addEventListener('click', (e) => {
+    if (e.target === videoModal) closeVideoModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeVideoModal();
+  });
 
   /* ========== SMOOTH SCROLL FOR ANCHOR LINKS ========== */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
