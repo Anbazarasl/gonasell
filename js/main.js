@@ -125,61 +125,64 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ========== VIDEO LIGHTBOX ========== */
   const videoModal = document.getElementById('videoModal');
   const videoModalStage = document.getElementById('videoModalStage');
+  const videoModalPlayer = document.getElementById('videoModalPlayer');
   const videoModalClose = document.getElementById('videoModalClose');
 
-  // Track where the video came from so we can put it back on close.
-  let activeVideo = null;
-  let originParent = null;
-  let originNextSibling = null;
-
-  function openVideoModal(video) {
-    // Detect orientation from the live element (metadata is preloaded).
-    // Fallback to 9/16 if metadata not ready yet.
+  function openVideoModal(inlineVideo) {
+    // Aspect ratio from the inline video (metadata is already loaded since it autoplays).
     let aspect = '9/16';
-    if (video.videoWidth && video.videoHeight) {
-      aspect = video.videoWidth >= video.videoHeight ? '16/9' : '9/16';
+    if (inlineVideo.videoWidth && inlineVideo.videoHeight) {
+      aspect = inlineVideo.videoWidth >= inlineVideo.videoHeight ? '16/9' : '9/16';
     }
     videoModalStage.dataset.aspect = aspect;
 
-    // Re-parent the playing video — keeps buffer + decoder state, no new fetch.
-    activeVideo = video;
-    originParent = video.parentNode;
-    originNextSibling = video.nextSibling;
-    videoModalStage.appendChild(video);
+    const src = inlineVideo.dataset.src || inlineVideo.currentSrc || inlineVideo.src;
+    const startAt = inlineVideo.currentTime || 0;
 
-    video.controls = true;
-    video.muted = false;
-    video.loop = true;
+    // If src changed, reload. Otherwise just seek + play (instant).
+    if (videoModalPlayer.src !== src) {
+      videoModalPlayer.src = src;
+    }
+
+    // Synchronously inside the user gesture: open + play with audio.
     videoModal.classList.add('open');
-    // Resume playback (some browsers pause on DOM move).
-    const p = video.play();
-    if (p && p.catch) p.catch(() => {});
+
+    const tryPlay = () => {
+      videoModalPlayer.muted = false;
+      const p = videoModalPlayer.play();
+      if (p && p.catch) {
+        p.catch(() => {
+          // iOS may block unmuted; fall back to muted (user can tap unmute).
+          videoModalPlayer.muted = true;
+          videoModalPlayer.play().catch(() => {});
+        });
+      }
+    };
+
+    // Seek as soon as metadata is available, then play.
+    if (videoModalPlayer.readyState >= 1) {
+      try { videoModalPlayer.currentTime = startAt; } catch (e) {}
+      tryPlay();
+    } else {
+      const onMeta = () => {
+        try { videoModalPlayer.currentTime = startAt; } catch (e) {}
+        tryPlay();
+        videoModalPlayer.removeEventListener('loadedmetadata', onMeta);
+      };
+      videoModalPlayer.addEventListener('loadedmetadata', onMeta);
+      // Kick a play attempt immediately too, in case metadata loads synchronously.
+      tryPlay();
+    }
   }
 
   function closeVideoModal() {
     videoModal.classList.remove('open');
-    if (!activeVideo) return;
-
-    activeVideo.controls = false;
-    activeVideo.muted = true;
-
-    if (originNextSibling) {
-      originParent.insertBefore(activeVideo, originNextSibling);
-    } else if (originParent) {
-      originParent.appendChild(activeVideo);
-    }
-    const p = activeVideo.play();
-    if (p && p.catch) p.catch(() => {});
-
-    activeVideo = null;
-    originParent = null;
-    originNextSibling = null;
+    videoModalPlayer.pause();
+    // Don't unset src — keeping it in cache makes re-opens instant.
   }
 
   document.querySelectorAll('.service-item__video').forEach(video => {
     video.addEventListener('click', (e) => {
-      // Only open modal when video is in the carousel, not when it's already inside the modal.
-      if (video.closest('.video-modal__stage')) return;
       e.stopPropagation();
       openVideoModal(video);
     });
