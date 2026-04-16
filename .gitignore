@@ -4,6 +4,7 @@
 # Source assets — masters live elsewhere, processed copies are uploaded to Cloudinary
 webui/
 _transcoded/
+_dist/
 
 # Original full-size videos (now served from Cloudinary)
 /Brite.mp4
