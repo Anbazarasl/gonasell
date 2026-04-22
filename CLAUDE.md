@@ -36,5 +36,7 @@ images/             — All assets in WebP (heroes, team, services, logos, icons
 6. **Footer** — Contact CTA, email/phone, social icons, giant GONASELL brand, copyright
 
 ## Deployment
-- Netlify: https://glowing-fenglisu-4f7592.netlify.app
+- Production: https://www.gonasell.com (primary; `gonasell.com` redirects to www)
+- Netlify project: glowing-fenglisu-4f7592 (free `nf_team_dev` plan)
+- DNS registrar: Interneto Vizija (apex A → 75.2.60.5 + 99.83.190.102, www CNAME → glowing-fenglisu-4f7592.netlify.app)
 - Deploy command: `netlify deploy --prod --dir=.`

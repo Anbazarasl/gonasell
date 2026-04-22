@@ -1,7 +1,8 @@
 # Resume — Gonasell Website
 
-## Status: LIVE on Netlify (preview workflow established)
-- Production: https://glowing-fenglisu-4f7592.netlify.app
+## Status: LIVE on custom domain (https://www.gonasell.com)
+- Production: https://www.gonasell.com (apex `gonasell.com` 301s to www)
+- Netlify fallback: https://glowing-fenglisu-4f7592.netlify.app
 - GitHub: https://github.com/Anbazarasl/gonasell
 - Local: /Users/rasulertugrul/Personal Project/gonasell/
 
@@ -15,6 +16,8 @@
 - Replaced 4K Brite/WellDone (83/72 MB) with 1080p versions (12/11 MB) — they wouldn't auto-play on mobile at 4K
 - Added Biocell glampule to e-commerce gallery
 - Per-gallery slider scope (was scoped to first gallery only)
+- Custom domain `gonasell.com` live on Netlify with Let's Encrypt SSL (primary = www)
+- Wedding gallery simplified to video-only (4 static images removed)
 
 ## Cloudinary
 - Cloud: `dkvyimpd6` (account belongs to user)
@@ -45,12 +48,13 @@
 Use this exact prompt:
 ```
 I'm working on the Gonasell production studio website at /Users/rasulertugrul/Personal Project/gonasell/.
-Read CLAUDE.md and RESUME.md first. Production: https://glowing-fenglisu-4f7592.netlify.app
+Read CLAUDE.md and RESUME.md first. Production: https://www.gonasell.com
 GitHub: https://github.com/Anbazarasl/gonasell  Cloudinary cloud: dkvyimpd6
 Figma source: https://www.figma.com/design/VWksrX92jjo5Ubtr6PXumI/Gonasell?node-id=1-224
 ```
 
 ## Open items / next steps
 - **CMS**: Decap (Git-based, free) or Sanity (hosted) — needs Eleventy or similar SSG layer added so HTML becomes data-driven
-- **Custom domain**: pending domain registrar access from team (currently Netlify subdomain only)
+- **Apex HTTPS** (`https://gonasell.com`): Let's Encrypt cert propagating to apex load balancer IPs. Works via www; apex cert usually lands within ~1h of primary swap. Verify before reporting final status.
+- **Hostinger email (MX)**: client uses `@gonasell.com` emails (bundled free with Hostinger hosting). During nameserver swap to Interneto Vizija the MX record got left pointing at `gonasell.com` itself, which now resolves to Netlify. Client opted to fix on his own — if he asks: pull correct MX + SPF records from Hostinger panel, add in Interneto Vizija replacing current `@ MX 10 gonasell.com.`. Do NOT suggest cancelling Hostinger (email dies with it).
 - Consider removing root-level `Brite.mp4` / `WellDone.mp4` masters once team confirms Cloudinary 1080p versions are good
