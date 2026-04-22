@@ -219,4 +219,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
+  /* ========== HEADER SCROLL STATE ========== */
+  const header = document.querySelector('.header');
+  if (header) {
+    const onScroll = () => {
+      header.classList.toggle('header--scrolled', window.scrollY > 50);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
 });

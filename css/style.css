@@ -74,11 +74,19 @@ button {
   width: 100%;
   z-index: 100;
   padding: 36px var(--pad);
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, backdrop-filter 0.3s, padding 0.3s;
 }
 
 .header:hover {
   background-color: #0A0A0A33;
+}
+
+.header--scrolled {
+  background-color: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .header__inner {
