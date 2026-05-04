@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.meta.title }}</title>
+  <meta name="description" content="{{ site.meta.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ site.meta.title }}">
+  <meta property="og:description" content="{{ site.meta.og_description }}">
+  <meta property="og:image" content="{{ site.meta.og_image }}">
+  <meta property="og:url" content="{{ site.meta.url }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ site.meta.title }}">
+  <meta name="twitter:description" content="{{ site.meta.og_description }}">
+  <meta name="twitter:image" content="{{ site.meta.og_image }}">
+  <link rel="icon" href="/images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="#hero" class="header__logo">
+        <img src="/images/logo.svg" alt="Gonasell">
+      </a>
+      <nav class="header__nav">
+        <a href="#services" class="header__link">SERVICES</a>
+        <a href="#team" class="header__link">TEAM</a>
+        <a href="#contact" class="header__cta">CONTACT US <span class="arrow">&#8594;</span></a>
+      </nav>
+      <button class="header__menu-btn" id="menuBtn" aria-label="Open menu">MENU</button>
+    </div>
+  </header>
+
+  <!-- ========== MOBILE MENU ========== -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu__inner">
+      <div class="mobile-menu__top">
+        <a href="#hero" class="mobile-menu__logo">
+          <img src="/images/logo.svg" alt="Gonasell">
+        </a>
+        <button class="mobile-menu__close" id="menuClose">CLOSE</button>
+      </div>
+      <nav class="mobile-menu__nav">
+        <a href="#services" class="mobile-menu__link">SERVICES</a>
+        <a href="#team" class="mobile-menu__link">TEAM</a>
+        <a href="#contact" class="mobile-menu__link">CONTACT US</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ========== HERO SLIDER ========== -->
+  <section class="hero" id="hero">
+    <div class="hero__slides">
+      {%- for slide in site.hero.slides %}
+      <div class="hero__slide{{ ' active' if loop.first else '' }}" style="background-image: url('{{ slide.image }}')"></div>
+      {%- endfor %}
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <div class="hero__text">
+        <div class="hero__text-left reveal reveal-left">
+          <span class="hero__label">{{ site.hero.label }}</span>
+          <h1 class="hero__title">{{ site.hero.title_line1 }}<br>{{ site.hero.title_line2 }}</h1>
+        </div>
+        <div class="hero__text-right reveal reveal-right delay-1">
+          <h2 class="hero__subtitle">{{ site.hero.subtitle_line1 }}<br>{{ site.hero.subtitle_line2 }}</h2>
+        </div>
+      </div>
+      <div class="hero__pagination reveal delay-2">
+        <div class="hero__pagination-numbers">
+          {%- for slide in site.hero.slides %}
+          <button class="hero__page-num{{ ' active' if loop.first else '' }}" data-slide="{{ loop.index0 }}">{{ loop.index | pad(2) }}</button>
+          {%- endfor %}
+        </div>
+        <div class="hero__progress">
+          <div class="hero__progress-bar"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== LOGO MARQUEE ========== -->
+  <section class="logos">
+    <div class="logos__track">
+      {%- for client in site.clients %}
+      <div class="logos__item"><img src="{{ client.logo }}" alt="{{ client.name }}"></div>
+      {%- endfor %}
+      <!-- duplicate for seamless loop -->
+      {%- for client in site.clients %}
+      <div class="logos__item"><img src="{{ client.logo }}" alt="{{ client.name }}"></div>
+      {%- endfor %}
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section class="services" id="services">
+    <div class="services__inner">
+      <span class="section-label reveal">{{ site.services.label }}</span>
+      <h2 class="section-title reveal delay-1">{{ site.services.title }}</h2>
+
+      <div class="services__list">
+        {%- for service in site.services.items %}
+        <div class="services__divider"></div>
+        <div class="service-item{{ ' active' if loop.first else '' }} reveal{% if not loop.first %} delay-{{ loop.index0 }}{% endif %}" data-service="{{ service.name | lower | replace(' ', '-') }}">
+          <div class="service-item__header">
+            <div class="service-item__left">
+              <span class="service-item__num">{{ loop.index | pad(2) }}</span>
+              <h3 class="service-item__name{{ ' service-item__name--active' if loop.first else '' }}">{{ service.name }}</h3>
+            </div>
+            <div class="service-item__right">
+              <p class="service-item__desc">{{ service.description }}</p>
+            </div>
+          </div>
+          <div class="service-item__gallery">
+            <div class="service-item__slider">
+              <div class="service-item__slides">
+                {%- for item in service.gallery %}
+                {%- if item.type == "image" %}
+                <img src="{{ item.src }}" alt="{{ item.alt or service.name }}" loading="lazy">
+                {%- elif item.type == "video" %}
+                <video class="service-item__video" src="{{ item.src }}" data-src="{{ item.src }}" autoplay muted loop playsinline preload="metadata"></video>
+                {%- endif %}
+                {%- endfor %}
+              </div>
+            </div>
+            <div class="service-item__arrows">
+              <button class="service-item__arrow service-item__arrow--prev" aria-label="Previous">
+                <svg width="13" height="25" viewBox="0 0 13 25" fill="none"><path d="M12 1L1.5 12.5L12 24" stroke="white" stroke-width="1.5"/></svg>
+              </button>
+              <button class="service-item__arrow service-item__arrow--next" aria-label="Next">
+                <svg width="13" height="25" viewBox="0 0 13 25" fill="none"><path d="M1 1L11.5 12.5L1 24" stroke="white" stroke-width="1.5"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        {%- endfor %}
+        <div class="services__divider"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TEAM ========== -->
+  <section class="team" id="team">
+    <div class="team__inner">
+      <span class="section-label reveal">{{ site.team.label }}</span>
+      <h2 class="section-title reveal delay-1">{{ site.team.title }}</h2>
+
+      <div class="team__grid">
+        {%- for member in site.team.members %}
+        <div class="team__card reveal{% if not loop.first %} delay-{{ loop.index0 }}{% endif %}">
+          <div class="team__photo">
+            <img src="{{ member.photo }}" alt="{{ member.name }}" loading="lazy">
+            <img src="{{ member.icon }}" alt="" class="team__icon">
+          </div>
+          <span class="team__years">{{ member.years }}</span>
+          <div class="team__info">
+            <h3 class="team__name">{{ member.name }}</h3>
+            <span class="team__role">{{ member.role }}</span>
+          </div>
+          <p class="team__bio">{{ member.bio }}</p>
+        </div>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" id="contact">
+    <div class="footer__inner">
+      <div class="footer__divider"></div>
+
+      <div class="footer__contact">
+        <div class="footer__cta-text reveal reveal-left">
+          <h2 class="footer__heading">{{ site.footer.heading }}</h2>
+        </div>
+        <div class="footer__arrow">
+          <img src="/images/arrow-right.svg" alt="">
+        </div>
+        <div class="footer__info reveal reveal-right delay-1">
+          <a href="mailto:{{ site.footer.email }}" class="footer__email">{{ site.footer.email }}</a>
+          <a href="tel:{{ site.footer.phone | replace(' ', '') }}" class="footer__phone">{{ site.footer.phone_display }}</a>
+        </div>
+      </div>
+
+      <div class="footer__social reveal delay-2">
+        {% if site.footer.social.facebook %}<a href="{{ site.footer.social.facebook }}" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><img src="/images/social-facebook.svg" alt="Facebook"></a>{% endif %}
+        {% if site.footer.social.instagram %}<a href="{{ site.footer.social.instagram }}" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg>
+        </a>{% endif %}
+        {% if site.footer.social.linkedin %}<a href="{{ site.footer.social.linkedin }}" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><img src="/images/social-linkedin.svg" alt="LinkedIn"></a>{% endif %}
+        {% if site.footer.social.youtube %}<a href="{{ site.footer.social.youtube }}" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><img src="/images/social-youtube.svg" alt="YouTube"></a>{% endif %}
+        {% if site.footer.social.tiktok %}<a href="{{ site.footer.social.tiktok }}" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><img src="/images/social-tiktok.svg" alt="TikTok"></a>{% endif %}
+      </div>
+    </div>
+
+    <div class="footer__brand reveal reveal-scale">
+      <img src="/images/gonasell-large.svg" alt="Gonasell">
+    </div>
+
+    <div class="footer__bottom">
+      <span>{{ site.footer.copyright }}</span>
+      <div class="footer__links">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== VIDEO MODAL ========== -->
+  <div class="video-modal" id="videoModal">
+    <button class="video-modal__close" id="videoModalClose">CLOSE</button>
+    <div class="video-modal__stage" id="videoModalStage" data-aspect="9/16">
+      <video class="video-modal__player" id="videoModalPlayer" controls playsinline preload="auto"></video>
+    </div>
+  </div>
+
+  <script src="/js/main.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

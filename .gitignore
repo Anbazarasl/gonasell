@@ -9,3 +9,7 @@ _dist/
 # Original full-size videos (now served from Cloudinary)
 /Brite.mp4
 /WellDone.mp4
+
+# Eleventy output
+_site/
+node_modules/

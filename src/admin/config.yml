@@ -1,0 +1,122 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/images"
+public_folder: "/images"
+
+collections:
+  - name: "settings"
+    label: "Site Settings"
+    editor:
+      preview: false
+    files:
+      # ── META / SEO ──
+      - name: "site"
+        label: "All Content"
+        file: "src/_data/site.json"
+        fields:
+          # ── META ──
+          - label: "Meta / SEO"
+            name: "meta"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Page Title", name: "title", widget: "string" }
+              - { label: "Meta Description", name: "description", widget: "text" }
+              - { label: "OG Description", name: "og_description", widget: "text" }
+              - { label: "OG Image", name: "og_image", widget: "image" }
+              - { label: "Site URL", name: "url", widget: "string" }
+
+          # ── HERO ──
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Title Line 1", name: "title_line1", widget: "string" }
+              - { label: "Title Line 2", name: "title_line2", widget: "string" }
+              - { label: "Subtitle Line 1", name: "subtitle_line1", widget: "string" }
+              - { label: "Subtitle Line 2", name: "subtitle_line2", widget: "string" }
+              - label: "Slides"
+                name: "slides"
+                widget: "list"
+                fields:
+                  - { label: "Image", name: "image", widget: "image" }
+
+          # ── CLIENTS ──
+          - label: "Client Logos"
+            name: "clients"
+            widget: "list"
+            fields:
+              - { label: "Logo", name: "logo", widget: "image" }
+              - { label: "Client Name", name: "name", widget: "string" }
+
+          # ── SERVICES ──
+          - label: "Services Section"
+            name: "services"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Section Label", name: "label", widget: "string" }
+              - { label: "Section Title", name: "title", widget: "string" }
+              - label: "Services"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Service Name", name: "name", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - label: "Gallery"
+                    name: "gallery"
+                    widget: "list"
+                    fields:
+                      - label: "Type"
+                        name: "type"
+                        widget: "select"
+                        options: ["image", "video"]
+                      - label: "Source"
+                        name: "src"
+                        widget: "string"
+                        hint: "For images: upload via Media. For videos: paste Cloudinary URL"
+                      - { label: "Alt Text", name: "alt", widget: "string", required: false }
+
+          # ── TEAM ──
+          - label: "Team Section"
+            name: "team"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Section Label", name: "label", widget: "string" }
+              - { label: "Section Title", name: "title", widget: "string" }
+              - label: "Members"
+                name: "members"
+                widget: "list"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Role", name: "role", widget: "string" }
+                  - { label: "Years Experience", name: "years", widget: "string" }
+                  - { label: "Bio", name: "bio", widget: "text" }
+                  - { label: "Photo", name: "photo", widget: "image" }
+                  - { label: "Icon", name: "icon", widget: "image" }
+
+          # ── FOOTER ──
+          - label: "Footer"
+            name: "footer"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Phone", name: "phone", widget: "string" }
+              - { label: "Phone Display", name: "phone_display", widget: "string" }
+              - { label: "Copyright", name: "copyright", widget: "string" }
+              - label: "Social Links"
+                name: "social"
+                widget: "object"
+                fields:
+                  - { label: "Facebook", name: "facebook", widget: "string", required: false }
+                  - { label: "Instagram", name: "instagram", widget: "string", required: false }
+                  - { label: "LinkedIn", name: "linkedin", widget: "string", required: false }
+                  - { label: "YouTube", name: "youtube", widget: "string", required: false }
+                  - { label: "TikTok", name: "tiktok", widget: "string", required: false }

@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "title": "Gonasell — Production Studio",
+    "description": "Gonasell is a Lithuanian production studio specializing in e-commerce photography, social media content, weddings, and music videos. Your new favorite visual content creators.",
+    "og_description": "Your new favorite visual content creators. E-commerce, social media, weddings & music video production in Lithuania.",
+    "og_image": "images/hero-01.webp",
+    "url": "https://gonasell.com"
+  },
+  "hero": {
+    "label": "PRODUCTION STUDIO",
+    "title_line1": "YOUR NEW",
+    "title_line2": "FAVORITE",
+    "subtitle_line1": "VISUAL CONTENT",
+    "subtitle_line2": "CREATORS",
+    "slides": [
+      { "image": "/images/hero-01.webp" },
+      { "image": "/images/hero-02.webp" },
+      { "image": "/images/hero-03.webp" },
+      { "image": "/images/hero-04.webp" },
+      { "image": "/images/hero-05.webp" }
+    ]
+  },
+  "clients": [
+    { "logo": "/images/client-1.webp", "name": "Client 1" },
+    { "logo": "/images/client-2.webp", "name": "Client 2" },
+    { "logo": "/images/client-3.webp", "name": "Client 3" },
+    { "logo": "/images/client-4.webp", "name": "Client 4" },
+    { "logo": "/images/client-5.webp", "name": "Client 5" },
+    { "logo": "/images/client-6.webp", "name": "Client 6" },
+    { "logo": "/images/client-7.webp", "name": "Client 7" }
+  ],
+  "services": {
+    "label": "WHAT WE DO",
+    "title": "OUR SERVICES",
+    "items": [
+      {
+        "name": "E-COMMERCE",
+        "description": "Product photography and video content that converts browsers into buyers. Clean, compelling visuals for your online store.",
+        "gallery": [
+          { "type": "video", "src": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776339595/ecom-brite.mp4" },
+          { "type": "video", "src": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776339606/ecom-welldone.mp4" },
+          { "type": "video", "src": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776334105/ecom-biocell-glampule.mp4" },
+          { "type": "image", "src": "/Images2/Rectangle 4.jpg", "alt": "E-commerce photography" },
+          { "type": "image", "src": "/Images2/Rectangle 5.jpg", "alt": "E-commerce photography" },
+          { "type": "image", "src": "/Images2/Rectangle 6.jpg", "alt": "E-commerce photography" }
+        ]
+      },
+      {
+        "name": "SOCIAL MEDIA",
+        "description": "Scroll-stopping content designed for engagement. Reels, stories, and posts that make your brand unforgettable.",
+        "gallery": [
+          { "type": "video", "src": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776331890/social-barber.mp4" },
+          { "type": "video", "src": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776331912/social-finex.mp4" },
+          { "type": "video", "src": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776331954/social-motorhood.mp4" }
+        ]
+      },
+      {
+        "name": "WEDDINGS",
+        "description": "Capturing your most important moments with cinematic elegance. Every emotion, every detail, preserved forever.",
+        "gallery": [
+          { "type": "video", "src": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776332010/wedding-korina.mp4" },
+          { "type": "video", "src": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776332073/wedding-urte.mp4" },
+          { "type": "video", "src": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776332130/wedding-vaiva.mp4" },
+          { "type": "image", "src": "/images/service-wedding-01.webp", "alt": "Wedding photography" },
+          { "type": "image", "src": "/images/service-wedding-02.webp", "alt": "Wedding photography" },
+          { "type": "image", "src": "/images/service-wedding-03.webp", "alt": "Wedding photography" },
+          { "type": "image", "src": "/images/service-wedding-04.webp", "alt": "Wedding photography" }
+        ]
+      },
+      {
+        "name": "MUSIC VIDEOS",
+        "description": "Creative direction and production that brings your sound to life visually. Bold concepts, flawless execution.",
+        "gallery": [
+          { "type": "video", "src": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776332173/music-greta.mp4" },
+          { "type": "video", "src": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776332259/music-nika-dance.mp4" },
+          { "type": "video", "src": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776332295/music-nika-facetosun.mp4" }
+        ]
+      }
+    ]
+  },
+  "team": {
+    "label": "ABOUT US",
+    "title": "MEET THE TEAM",
+    "members": [
+      {
+        "name": "NEDAS",
+        "role": "VIDEOGRAPHER",
+        "years": "12 YEARS",
+        "bio": "Creative energy, technical skill, and a laidback vibe. He captures the perfect shot and turns it into something unforgettable.",
+        "photo": "/images/team-nedas.webp",
+        "icon": "/images/icon-videocamera.svg"
+      },
+      {
+        "name": "LUKAS",
+        "role": "PHOTOGRAPHER",
+        "years": "8 YEARS",
+        "bio": "Detail-focused with a sharp eye and fresh ideas. He captures moments that feel genuine and makes them look amazing.",
+        "photo": "/images/team-lukas.webp",
+        "icon": "/images/icon-camera.svg"
+      },
+      {
+        "name": "GABRIELĖ",
+        "role": "VISUAL DIRECTOR",
+        "years": "6+ YEARS",
+        "bio": "A sharp scriptwriter and hands-on visual director. She brings visions to life — smoothly and with style.",
+        "photo": "/images/team-gabriele.webp",
+        "icon": "/images/icon-video.svg"
+      }
+    ]
+  },
+  "footer": {
+    "heading": "YOUR PROJECT STARTS HERE",
+    "email": "info@gonasell.com",
+    "phone": "+370 67098847",
+    "phone_display": "+370 67098847",
+    "copyright": "©2026 MB Gonasell | All rights reserved",
+    "social": {
+      "facebook": "https://www.facebook.com/profile.php?id=61557567037246",
+      "instagram": "https://www.instagram.com/gonasell/",
+      "linkedin": "https://www.linkedin.com/company/gonasell/",
+      "youtube": "https://www.youtube.com/@GonaSell",
+      "tiktok": "https://www.tiktok.com/@gonasell.video"
+    }
+  }
+}
