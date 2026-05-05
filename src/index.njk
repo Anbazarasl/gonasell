@@ -62,7 +62,13 @@
   <section class="hero" id="hero">
     <div class="hero__slides">
       {%- for slide in site.hero.slides %}
+      {%- if slide.video_url %}
+      <div class="hero__slide hero__slide--video{{ ' active' if loop.first else '' }}">
+        <video src="{{ slide.video_url }}" autoplay muted loop playsinline preload="metadata"></video>
+      </div>
+      {%- else %}
       <div class="hero__slide{{ ' active' if loop.first else '' }}" style="background-image: url('{{ slide.image }}')"></div>
+      {%- endif %}
       {%- endfor %}
     </div>
     <div class="hero__overlay"></div>

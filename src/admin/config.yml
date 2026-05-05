@@ -58,8 +58,10 @@ collections:
               - label: "Slides"
                 name: "slides"
                 widget: "list"
+                hint: "Each slide can be an image OR a video. If you fill in a Video URL, the video will be used and the image will be ignored."
                 fields:
-                  - { label: "Image", name: "image", widget: "image" }
+                  - { label: "Image", name: "image", widget: "image", required: false }
+                  - { label: "Video URL", name: "video_url", widget: "string", required: false, hint: "Optional — paste a Cloudinary (or other) video URL to use a video instead of the image" }
 
           # ── CLIENTS ──
           - label: "Client Logos"
