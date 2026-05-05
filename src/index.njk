@@ -31,9 +31,10 @@
         <img src="/images/logo.svg" alt="Gonasell">
       </a>
       <nav class="header__nav">
-        <a href="#services" class="header__link">SERVICES</a>
-        <a href="#team" class="header__link">TEAM</a>
-        <a href="#contact" class="header__cta">CONTACT US <span class="arrow">&#8594;</span></a>
+        {%- for link in site.header.nav_links %}
+        <a href="{{ link.link }}" class="header__link">{{ link.label }}</a>
+        {%- endfor %}
+        <a href="{{ site.header.cta_link }}" class="header__cta">{{ site.header.cta_text }} <span class="arrow">&#8594;</span></a>
       </nav>
       <button class="header__menu-btn" id="menuBtn" aria-label="Open menu">MENU</button>
     </div>
@@ -49,9 +50,10 @@
         <button class="mobile-menu__close" id="menuClose">CLOSE</button>
       </div>
       <nav class="mobile-menu__nav">
-        <a href="#services" class="mobile-menu__link">SERVICES</a>
-        <a href="#team" class="mobile-menu__link">TEAM</a>
-        <a href="#contact" class="mobile-menu__link">CONTACT US</a>
+        {%- for link in site.header.nav_links %}
+        <a href="{{ link.link }}" class="mobile-menu__link">{{ link.label }}</a>
+        {%- endfor %}
+        <a href="{{ site.header.cta_link }}" class="mobile-menu__link">{{ site.header.cta_text }}</a>
       </nav>
     </div>
   </div>
@@ -124,9 +126,9 @@
               <div class="service-item__slides">
                 {%- for item in service.gallery %}
                 {%- if item.type == "image" %}
-                <img src="{{ item.src }}" alt="{{ item.alt or service.name }}" loading="lazy">
+                <img src="{{ item.image or item.src }}" alt="{{ item.alt or service.name }}" loading="lazy">
                 {%- elif item.type == "video" %}
-                <video class="service-item__video" src="{{ item.src }}" data-src="{{ item.src }}" autoplay muted loop playsinline preload="metadata"></video>
+                <video class="service-item__video" src="{{ item.video_url or item.src }}" data-src="{{ item.video_url or item.src }}" autoplay muted loop playsinline preload="metadata"></video>
                 {%- endif %}
                 {%- endfor %}
               </div>

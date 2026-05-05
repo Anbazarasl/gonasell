@@ -6,6 +6,14 @@
     "og_image": "images/hero-01.webp",
     "url": "https://gonasell.com"
   },
+  "header": {
+    "nav_links": [
+      { "label": "SERVICES", "link": "#services" },
+      { "label": "TEAM", "link": "#team" }
+    ],
+    "cta_text": "CONTACT US",
+    "cta_link": "#contact"
+  },
   "hero": {
     "label": "PRODUCTION STUDIO",
     "title_line1": "YOUR NEW",
@@ -70,29 +78,29 @@
         "gallery": [
           {
             "type": "video",
-            "src": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776339595/ecom-brite.mp4"
+            "video_url": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776339595/ecom-brite.mp4"
           },
           {
             "type": "video",
-            "src": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776339606/ecom-welldone.mp4"
+            "video_url": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776339606/ecom-welldone.mp4"
           },
           {
             "type": "video",
-            "src": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776334105/ecom-biocell-glampule.mp4"
+            "video_url": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776334105/ecom-biocell-glampule.mp4"
           },
           {
             "type": "image",
-            "src": "/Images2/Rectangle 4.jpg",
+            "image": "/images/ecom-4.jpg",
             "alt": "E-commerce photography"
           },
           {
             "type": "image",
-            "src": "/Images2/Rectangle 5.jpg",
+            "image": "/images/ecom-5.jpg",
             "alt": "E-commerce photography"
           },
           {
             "type": "image",
-            "src": "/Images2/Rectangle 6.jpg",
+            "image": "/images/ecom-6.jpg",
             "alt": "E-commerce photography"
           }
         ]
@@ -103,15 +111,15 @@
         "gallery": [
           {
             "type": "video",
-            "src": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776331890/social-barber.mp4"
+            "video_url": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776331890/social-barber.mp4"
           },
           {
             "type": "video",
-            "src": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776331912/social-finex.mp4"
+            "video_url": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776331912/social-finex.mp4"
           },
           {
             "type": "video",
-            "src": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776331954/social-motorhood.mp4"
+            "video_url": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776331954/social-motorhood.mp4"
           }
         ]
       },
@@ -121,34 +129,34 @@
         "gallery": [
           {
             "type": "video",
-            "src": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776332010/wedding-korina.mp4"
+            "video_url": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776332010/wedding-korina.mp4"
           },
           {
             "type": "video",
-            "src": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776332073/wedding-urte.mp4"
+            "video_url": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776332073/wedding-urte.mp4"
           },
           {
             "type": "video",
-            "src": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776332130/wedding-vaiva.mp4"
+            "video_url": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776332130/wedding-vaiva.mp4"
           },
           {
             "type": "image",
-            "src": "/images/service-wedding-01.webp",
+            "image": "/images/service-wedding-01.webp",
             "alt": "Wedding photography"
           },
           {
             "type": "image",
-            "src": "/images/service-wedding-02.webp",
+            "image": "/images/service-wedding-02.webp",
             "alt": "Wedding photography"
           },
           {
             "type": "image",
-            "src": "/images/service-wedding-03.webp",
+            "image": "/images/service-wedding-03.webp",
             "alt": "Wedding photography"
           },
           {
             "type": "image",
-            "src": "/images/service-wedding-04.webp",
+            "image": "/images/service-wedding-04.webp",
             "alt": "Wedding photography"
           }
         ]
@@ -159,15 +167,15 @@
         "gallery": [
           {
             "type": "video",
-            "src": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776332173/music-greta.mp4"
+            "video_url": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776332173/music-greta.mp4"
           },
           {
             "type": "video",
-            "src": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776332259/music-nika-dance.mp4"
+            "video_url": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776332259/music-nika-dance.mp4"
           },
           {
             "type": "video",
-            "src": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776332295/music-nika-facetosun.mp4"
+            "video_url": "https://res.cloudinary.com/dkvyimpd6/video/upload/v1776332295/music-nika-facetosun.mp4"
           }
         ]
       }

@@ -28,6 +28,22 @@ collections:
               - { label: "OG Image", name: "og_image", widget: "image" }
               - { label: "Site URL", name: "url", widget: "string" }
 
+          # ── HEADER ──
+          - label: "Header"
+            name: "header"
+            widget: "object"
+            collapsed: true
+            fields:
+              - label: "Navigation Links"
+                name: "nav_links"
+                widget: "list"
+                hint: "Links shown in the top navigation. Use # plus a section name (e.g. #services) to jump to a section on the same page, or a full URL for external links."
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Link", name: "link", widget: "string", hint: "e.g. #services, #team, or https://..." }
+              - { label: "CTA Button Text", name: "cta_text", widget: "string" }
+              - { label: "CTA Button Link", name: "cta_link", widget: "string", hint: "e.g. #contact or https://..." }
+
           # ── HERO ──
           - label: "Hero Section"
             name: "hero"
@@ -75,10 +91,16 @@ collections:
                         name: "type"
                         widget: "select"
                         options: ["image", "video"]
-                      - label: "Source"
-                        name: "src"
+                      - label: "Image"
+                        name: "image"
+                        widget: "image"
+                        required: false
+                        hint: "Use this for image items — choose or upload from library"
+                      - label: "Video URL"
+                        name: "video_url"
                         widget: "string"
-                        hint: "For images: upload via Media. For videos: paste Cloudinary URL"
+                        required: false
+                        hint: "Use this for video items — paste Cloudinary URL"
                       - { label: "Alt Text", name: "alt", widget: "string", required: false }
 
           # ── TEAM ──
