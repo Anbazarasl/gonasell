@@ -8,8 +8,14 @@
   },
   "header": {
     "nav_links": [
-      { "label": "SERVICES", "link": "#services" },
-      { "label": "TEAM", "link": "#team" }
+      {
+        "label": "SERVICES",
+        "link": "#services"
+      },
+      {
+        "label": "TEAM",
+        "link": "#team"
+      }
     ],
     "cta_text": "CONTACT US",
     "cta_link": "#contact"
@@ -214,8 +220,8 @@
   "footer": {
     "heading": "YOUR PROJECT STARTS HERE",
     "email": "info@gonasell.com",
-    "phone": "+370 67098847",
-    "phone_display": "+370 67098847",
+    "phone": "+370 63996170",
+    "phone_display": "+370 63996170",
     "copyright": "©2026 MB Gonasell | All rights reserved",
     "social": {
       "facebook": "https://www.facebook.com/profile.php?id=61557567037246",
