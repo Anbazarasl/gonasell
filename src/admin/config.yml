@@ -61,7 +61,7 @@ collections:
                 hint: "Each slide can be an image OR a video. If you fill in a Video URL, the video will be used and the image will be ignored."
                 fields:
                   - { label: "Image", name: "image", widget: "image", required: false }
-                  - { label: "Video URL", name: "video_url", widget: "string", required: false, hint: "Optional — paste a Cloudinary (or other) video URL to use a video instead of the image" }
+                  - { label: "Video URL", name: "video_url", widget: "string", required: false, hint: "Optional — paste a video URL (e.g. /videos/name.mp4 or an external https:// URL) to use a video instead of the image" }
 
           # ── CLIENTS ──
           - label: "Client Logos"
@@ -102,7 +102,7 @@ collections:
                         name: "video_url"
                         widget: "string"
                         required: false
-                        hint: "Use this for video items — paste Cloudinary URL"
+                        hint: "Use this for video items — paste a video URL (e.g. /videos/name.mp4 or an external https:// URL)"
                       - { label: "Alt Text", name: "alt", widget: "string", required: false }
 
           # ── TEAM ──
