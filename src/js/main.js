@@ -91,40 +91,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ========== SERVICE IMAGE SLIDERS (per-gallery) ========== */
   document.querySelectorAll('.service-item__gallery').forEach(gallery => {
+    const slider = gallery.querySelector('.service-item__slider');
     const slidesContainer = gallery.querySelector('.service-item__slides');
     const prevBtn = gallery.querySelector('.service-item__arrow--prev');
     const nextBtn = gallery.querySelector('.service-item__arrow--next');
-    if (!slidesContainer || !prevBtn || !nextBtn) return;
+    if (!slider || !slidesContainer || !prevBtn || !nextBtn) return;
 
-    let sliderPos = 0;
-    const slideItems = slidesContainer.querySelectorAll('img, .service-item__video');
-
-    const getSlideWidth = () => {
-      const first = slideItems[0];
-      if (!first) return 0;
+    const getSlideStep = () => {
+      const first = slidesContainer.querySelector('img, .service-item__video');
+      if (!first) return slider.clientWidth;
       return first.offsetWidth + 24;
-    };
-
-    const getMaxPos = () => {
-      const containerWidth = slidesContainer.parentElement.offsetWidth;
-      const totalWidth = slideItems.length * getSlideWidth() - 24;
-      return Math.max(0, totalWidth - containerWidth);
-    };
-
-    const updateSlider = () => {
-      slidesContainer.style.transform = `translateX(-${sliderPos}px)`;
     };
 
     prevBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      sliderPos = Math.max(0, sliderPos - getSlideWidth());
-      updateSlider();
+      slider.scrollBy({ left: -getSlideStep(), behavior: 'smooth' });
     });
 
     nextBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      sliderPos = Math.min(getMaxPos(), sliderPos + getSlideWidth());
-      updateSlider();
+      slider.scrollBy({ left: getSlideStep(), behavior: 'smooth' });
     });
   });
 
