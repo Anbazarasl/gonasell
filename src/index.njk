@@ -64,7 +64,7 @@
       {%- for slide in site.hero.slides %}
       {%- if slide.video_url %}
       <div class="hero__slide hero__slide--video{{ ' active' if loop.first else '' }}">
-        <video src="{{ slide.video_url }}" autoplay muted loop playsinline preload="metadata"></video>
+        <video data-src="{{ slide.video_url }}" muted loop playsinline preload="none"></video>
       </div>
       {%- else %}
       <div class="hero__slide{{ ' active' if loop.first else '' }}" style="background-image: url('{{ slide.image }}')"></div>
@@ -134,7 +134,7 @@
                 {%- if item.type == "image" %}
                 <img src="{{ item.image or item.src }}" alt="{{ item.alt or service.name }}" loading="lazy">
                 {%- elif item.type == "video" %}
-                <video class="service-item__video" src="{{ item.video_url or item.src }}" data-src="{{ item.video_url or item.src }}" autoplay muted loop playsinline preload="metadata"></video>
+                <video class="service-item__video" data-src="{{ item.video_url or item.src }}" muted loop playsinline preload="none"></video>
                 {%- endif %}
                 {%- endfor %}
               </div>

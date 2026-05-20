@@ -114,6 +114,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* ========== LAZY-LOAD VIDEOS (IntersectionObserver) ==========
+     Videos only download + autoplay when scrolled into view, and pause
+     when scrolled out. Cuts pageload bandwidth dramatically. */
+  const lazyVideos = document.querySelectorAll('video[data-src]');
+  if ('IntersectionObserver' in window && lazyVideos.length) {
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const vid = entry.target;
+        if (entry.isIntersecting) {
+          if (!vid.src && vid.dataset.src) {
+            vid.src = vid.dataset.src;
+          }
+          const p = vid.play();
+          if (p && p.catch) p.catch(() => {});
+        } else {
+          if (!vid.paused) vid.pause();
+        }
+      });
+    }, { threshold: 0.25 });
+    lazyVideos.forEach((v) => videoObserver.observe(v));
+  } else {
+    // Fallback for old browsers: load + play everything (original behavior)
+    lazyVideos.forEach((v) => {
+      if (!v.src && v.dataset.src) v.src = v.dataset.src;
+      const p = v.play();
+      if (p && p.catch) p.catch(() => {});
+    });
+  }
+
   /* ========== VIDEO LIGHTBOX ========== */
   const videoModal = document.getElementById('videoModal');
   const videoModalStage = document.getElementById('videoModalStage');
