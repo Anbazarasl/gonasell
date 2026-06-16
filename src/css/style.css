@@ -605,6 +605,8 @@ button {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
+  max-width: 820px;
+  margin: 0 auto;
 }
 
 .team__card {
